@@ -1,2 +1,1 @@
-# KAL
- kryptografia
+# Kryptografia z elementami algebry
