@@ -2,7 +2,7 @@ b = eval(input("wpisz b: "))
 k = eval(input("wpisz k: "))
 n = eval(input("wpisz m: "))
 
-def comp(b, k, m):
+def mod(b, k, m):
         ans = 1
         try:
             while k > 0:
@@ -17,6 +17,6 @@ def comp(b, k, m):
 
 if __name__ == '__main__':
 
-    x = comp(b, k, n)
+    x = mod(b, k, n)
 
     print(b,"^", k,"mod", n,"=", x)
