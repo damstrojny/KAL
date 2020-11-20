@@ -1,6 +1,6 @@
-b = eval(input("wpisz b: "))
-k = eval(input("wpisz k: "))
-n = eval(input("wpisz m: "))
+b = eval(input("wprowadz b: "))
+k = eval(input("wprowadz k: "))
+n = eval(input("wprowadz m: "))
 
 def mod(b, k, m):
         ans = 1
