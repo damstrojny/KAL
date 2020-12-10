@@ -65,22 +65,22 @@ def inverse(b, n):
  return euc(b, n)[0]
 
 
-def encrypt(e, n, inp):  
+def encrypt(e, n, m):  
     code = ""
-    for i in inp:
+    for i in m:
         m = ord(i)
         code += str(pow(m, e, n)) + " "
     return code
 
 
 def decrypt(d, n, code): 
-    inp = ""
+    m = ""
     parts = code.split()
     for part in parts:
         if part:
             i = int(part)
-            inp += chr(pow(i, d, n))
-    return inp
+            m += chr(pow(i, d, n))
+    return m
 
 
 if __name__ == '__main__':
@@ -93,13 +93,13 @@ if __name__ == '__main__':
 print ("                     #####SZYFROWANIE#####\n")
 print("e:",e)
 print("n:",n)
-inp = input("Wprowadź wiadomość do zaszyfrowania: ")
-enc = encrypt(e, n, inp)
+m = input("Wprowadź wiadomość do zaszyfrowania: ")
+enc = encrypt(e, n, m)
 print("\nZaszyfrowana wiadomość: ",enc,"\n")
 print ("                    #####DESZYFROWANIE#####\n")
 print("d: ",d)
 print("n: ",n,"\n")
-inp = input("Wprowadź wiadomość do odszyfrowania: ")
-dec = decrypt(d, n, inp)
+m = input("Wprowadź wiadomość do odszyfrowania: ")
+dec = decrypt(d, n, m)
 print("Odszyfrowana wiadomość: ",dec)
            
