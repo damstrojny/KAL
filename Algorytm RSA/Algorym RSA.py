@@ -86,7 +86,7 @@ def decrypt(d, n, code):
 if __name__ == '__main__':
   pqsize = 16
   p, q, n, pn, e, d = gpkeys(pqsize)
-    
+  print ("p =",p,"q =",q,"\n")  
   print("Klucz publiczny:\nn = ",n,"\ne = ",e,"\nKlucz tajny:\nn = ",n,"\nd = ",d,"\n")
 
                 
