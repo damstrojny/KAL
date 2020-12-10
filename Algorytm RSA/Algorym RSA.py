@@ -70,7 +70,6 @@ def encrypt(e, n, inp):
     for i in inp:
         m = ord(i)
         code += str(pow(m, e, n)) + " "
-
     return code
 
 
@@ -81,7 +80,6 @@ def decrypt(d, n, code):
         if part:
             i = int(part)
             inp += chr(pow(i, d, n))
-
     return inp
 
 
@@ -91,8 +89,7 @@ if __name__ == '__main__':
     
   print("Klucz publiczny:\nn = ",n,"\ne = ",e,"\nKlucz tajny:\nn = ",n,"\nd = ",d,"\n")
 
-    
-              
+                
 print ("                     #####SZYFROWANIE#####\n")
 print("e:",e)
 print("n:",n)
