@@ -17,17 +17,15 @@ def nwd(x, y):
         x, y = y, x % y
     return x
 
-
-
-def generate_keys(key): 
-    p = generate_prime(key)
-    q = generate_prime(key)
+def gpkeys(key): 
+    p = gprime(key)
+    q = gprime(key)
     n = p * q
     phi = (p - 1) * (q - 1)
 
     while True:
         e = random.randrange(2 ** (key - 1), 2 ** key - 1)
-        if is_CoPrime(e, phi):
+        if is_coPrime(e, phi):
             break
 
     d = inverse(e, phi)
@@ -44,14 +42,14 @@ def isPrime(n):
                 return False
         return True   
 
-def is_CoPrime(d, Phi):  
-    return nwd(d, Phi) == 1
+def is_coPrime(d, phi):  
+    return nwd(d, phi) == 1
 
-def generate_prime(keysize):  
+def gprime(keysize):  
     while True:
-        num = random.randrange(2 ** (keysize - 1), 2 ** keysize - 1)
-        if isPrime(num):
-            return num
+        randnum = random.randrange(2 ** (keysize - 1), 2 ** keysize - 1)
+        if isPrime(randnum):
+            return randnum
 #zad 2
 def euc(b, n):
 
@@ -67,29 +65,29 @@ def inverse(b, n):
  return euc(b, n)[0]
 
 
-def encrypt(e, n, msg):  
-    cipher = ""
-    for c in msg:
-        m = ord(c)
-        cipher += str(pow(m, e, n)) + " "
+def encrypt(e, n, inp):  
+    code = ""
+    for i in inp:
+        m = ord(i)
+        code += str(pow(m, e, n)) + " "
 
-    return cipher
+    return code
 
 
-def decrypt(d, n, cipher): 
-    msg = ""
-    parts = cipher.split()
+def decrypt(d, n, code): 
+    inp = ""
+    parts = code.split()
     for part in parts:
         if part:
-            c = int(part)
-            msg += chr(pow(c, d, n))
+            i = int(part)
+            inp += chr(pow(i, d, n))
 
-    return msg
+    return inp
 
 
 if __name__ == '__main__':
     KeySize = 16
-    p, q, n, pn, e, d = generate_keys(KeySize)
+    p, q, n, pn, e, d = gpkeys(KeySize)
     
     print("Klucz publiczny:\nn = ",n,"\ne = ",e,"\nKlucz tajny:\nn = ",n,"\nd = ",d,"\n")
 
@@ -98,13 +96,13 @@ if __name__ == '__main__':
 print ("                     #####SZYFROWANIE#####\n")
 print("e:",e)
 print("n:",n)
-msg = input("Wprowadź wiadomość do zaszyfrowania: ")
-enc = encrypt(e, n, msg)
+inp = input("Wprowadź wiadomość do zaszyfrowania: ")
+enc = encrypt(e, n, inp)
 print("\nZaszyfrowana wiadomość: ",enc,"\n")
 print ("                    #####DESZYFROWANIE#####\n")
 print("d: ",d)
 print("n: ",n,"\n")
-msg = input("Wprowadź wiadomość do odszyfrowania: ")
-dec = decrypt(d, n, msg)
+inp = input("Wprowadź wiadomość do odszyfrowania: ")
+dec = decrypt(d, n, inp)
 print("Odszyfrowana wiadomość: ",dec)
            
