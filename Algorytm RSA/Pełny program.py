@@ -19,7 +19,7 @@ def nwd(x, y):
 
 
 
-def generate_keys(key):  
+def generate_keys(key):  # Generate P and Q and other variables to act as keys
     p = generate_prime(key)
     q = generate_prime(key)
     n = p * q
@@ -67,44 +67,44 @@ def inverse(b, n):
  return euc(b, n)[0]
 
 
-def encrypt(e, N, msg):  
+def encrypt(e, n, msg):  
     cipher = ""
     for c in msg:
         m = ord(c)
-        cipher += str(pow(m, e, N)) + " "
+        cipher += str(pow(m, e, n)) + " "
 
     return cipher
 
 
-def decrypt(d, N, cipher): 
+def decrypt(d, n, cipher): 
     msg = ""
     parts = cipher.split()
     for part in parts:
         if part:
             c = int(part)
-            msg += chr(pow(c, d, N))
+            msg += chr(pow(c, d, n))
 
     return msg
 
 
 if __name__ == '__main__':
     KeySize = 16
-    p, q, N, PN, e, d = generate_keys(KeySize)
+    p, q, n, pn, e, d = generate_keys(KeySize)
     
-    print("Klucz publiczny:\nn = ",N,"\ne = ",e,"\nKlucz tajny:\nn = ",N,"\nd = ",d,"\n")
+    print("Klucz publiczny:\nn = ",n,"\ne = ",e,"\nKlucz tajny:\nn = ",n,"\nd = ",d,"\n")
 
     
               
 print ("                     #####SZYFROWANIE#####\n")
-print(f"e: {e}")
-print(f"N: {N}")
+print("e:",e)
+print("n:",n)
 msg = input("Wprowadź wiadomość do zaszyfrowania: ")
-enc = encrypt(e, N, msg)
-print(f"\nZaszyfrowana wiadomość: [ {enc}]\n")
+enc = encrypt(e, n, msg)
+print("\nZaszyfrowana wiadomość: ",enc,"\n")
 print ("                    #####DESZYFROWANIE#####\n")
-print(f"d: {d}")
-print(f"N: {N}\n")
+print("d: ",d)
+print("n: ",n,"\n")
 msg = input("Wprowadź wiadomość do odszyfrowania: ")
-dec = decrypt(d, N, msg)
-print(f"Odszyfrowana wiadomość: [{dec}]")
+dec = decrypt(d, n, msg)
+print("Odszyfrowana wiadomość: ",dec)
            
