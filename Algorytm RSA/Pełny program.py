@@ -18,18 +18,18 @@ def nwd(x, y):
     return x
 
 def gpkeys(key): 
-    p = gprime(key)
-    q = gprime(key)
-    n = p * q
-    phi = (p - 1) * (q - 1)
+  p = gprime(key)
+  q = gprime(key)
+  n = p * q
+  phi = (p - 1) * (q - 1)
 
-    while True:
-        e = random.randrange(2 ** (key - 1), 2 ** key - 1)
-        if is_coPrime(e, phi):
-            break
+  while True:
+      e = random.randrange(2 ** (key - 1), 2 ** key - 1)
+      if is_coPrime(e, phi):
+          break
 
-    d = inverse(e, phi)
-    return p, q, n, phi, e, d
+  d = inverse(e, phi)
+  return p, q, n, phi, e, d
 
 def isPrime(n):
     if (n==1):
@@ -45,9 +45,9 @@ def isPrime(n):
 def is_coPrime(d, phi):  
     return nwd(d, phi) == 1
 
-def gprime(keysize):  
+def gprime(pqsize):  
     while True:
-        randnum = random.randrange(2 ** (keysize - 1), 2 ** keysize - 1)
+        randnum = random.randrange(2 ** (pqsize - 1), 2 ** pqsize - 1)
         if isPrime(randnum):
             return randnum
 #zad 2
@@ -86,10 +86,10 @@ def decrypt(d, n, code):
 
 
 if __name__ == '__main__':
-    KeySize = 16
-    p, q, n, pn, e, d = gpkeys(KeySize)
+  pqsize = 16
+  p, q, n, pn, e, d = gpkeys(pqsize)
     
-    print("Klucz publiczny:\nn = ",n,"\ne = ",e,"\nKlucz tajny:\nn = ",n,"\nd = ",d,"\n")
+  print("Klucz publiczny:\nn = ",n,"\ne = ",e,"\nKlucz tajny:\nn = ",n,"\nd = ",d,"\n")
 
     
               
