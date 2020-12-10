@@ -19,7 +19,7 @@ def nwd(x, y):
 
 
 
-def generate_keys(key):  # Generate P and Q and other variables to act as keys
+def generate_keys(key):  
     p = generate_prime(key)
     q = generate_prime(key)
     n = p * q
