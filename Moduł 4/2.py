@@ -14,5 +14,14 @@ def xtime(a):
         a=suma(a,"1B")
     return a
 
+a = "32"
+print("Dla a = 32, wartość wyjściowa wynosi:",(xtime(a)))
+a = "ff"
+print("Dla a = ff, wartość wyjściowa wynosi:",(xtime(a)))
+a = "bc"
+print("Dla a = bc, wartość wyjściowa wynosi:",(xtime(a)))
+  
 a = input("wprowadz a: ")
 print(xtime(a))
+
+
