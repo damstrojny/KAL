@@ -38,7 +38,7 @@ while True:
     def odwrotnosc(a):
      if a=="0":
        return "undefined"
-     if a!="00":  
+     elif a!="00":  
          z=a
          y=[]
          for i in range (7):
