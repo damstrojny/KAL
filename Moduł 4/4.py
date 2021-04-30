@@ -30,18 +30,20 @@ def mnozenie(a,b):
     return x
 
 def odwrotnosc(a):
-    if a=="00" or a=="0":
-        return "undefined"
-    else:
-        z=a
-        y=[]
-        for i in range (7):
-            z=mnozenie(z,z)
-            y[len(y):] = [z]
-        x=y.pop()
-        for i in range (6):
-            z=mnozenie(z, y.pop())
-        return z
+ if a=="0":
+   return "undefined"
+ elif a!="00":  
+     z=a
+     y=[]
+     for i in range (7):
+         z=mnozenie(z,z)
+         y[len(y):] = [z]
+     x=y.pop()
+     for i in range (6):
+         z=mnozenie(z, y.pop())
+     return z
+ else:
+      return "undefined"
       
   
 a = "03"
