@@ -35,11 +35,9 @@ def odwrotnosc(a):
     else:
         wielomian=a
         y=[]
-        check=1
         for i in range (7):
             wielomian=mnozenie(wielomian,wielomian)
             y.append(wielomian)
-            check=check*2
         x=y.pop()
         for i in range (6):
             wielomian=mnozenie(wielomian, y.pop())
