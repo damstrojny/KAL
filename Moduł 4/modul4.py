@@ -36,9 +36,9 @@ while True:
      return a
 
     def odwrotnosc(a):
-     if a=="00" or a=="0":
-         return "undefined"
-     else:
+     if a=="0":
+       return "undefined"
+     if a!="00":  
          z=a
          y=[]
          for i in range (7):
@@ -48,7 +48,9 @@ while True:
          for i in range (6):
              z=mnozenie(z, y.pop())
          return z
-
+     else:
+          return "undefined"
+       
     if nr == 1:
         print("\nPrzykładowe dane: \n")
         a = "a3"
@@ -59,7 +61,7 @@ while True:
         print("Dla a = 03, b = 1f wartość wyjściowa wynosi:",(suma(a,b)))
         a = input("\na = ")
         b = input("b = ")
-        print(suma(a, b))
+        print("wynik wynosi:",suma(a, b))
 
     if nr == 2:
         print("\nPrzykładowe dane: \n")
@@ -70,7 +72,7 @@ while True:
         a = "bc"
         print("Dla a = bc, wartość wyjściowa wynosi:",(xtime(a)))
         a = input("\na = ")
-        print(xtime(a))
+        print("wynik wynosi:",xtime(a))
 
     if nr == 3:
         print("\nPrzykładowe dane: \n")
@@ -82,7 +84,7 @@ while True:
         print("Dla a = ff, b = e1 wartość wyjściowa wynosi:",(mnozenie(a,b)))
         a = input("\na = ")
         b = input("b = ")
-        print(mnozenie(a, b))
+        print("wynik wynosi:",mnozenie(a, b))
 
     if nr == 4:
         print("\nPrzykładowe dane: \n")
@@ -94,4 +96,4 @@ while True:
         print("Dla a = 00, wartość wyjściowa wynosi:",(odwrotnosc(a)))
 
         a = input("\na = ")
-        print(odwrotnosc(a))
+        print("wynik wynosi:",odwrotnosc(a))
