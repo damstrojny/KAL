@@ -1,10 +1,6 @@
-import random
-import numpy as np
-from random import randrange, getrandbits, randint
-zad = int
-
+nr = int
 while True:
-    zad = int(input("\n[1] = suma \n[2] = xtime \n[3] = mnozenie \n[4] = odwrotnosc \nWprowadź numer zadania: "))
+    nr = int(input("\n[1] = suma \n[2] = xtime \n[3] = mnozenie \n[4] = odwrotnosc \nWprowadź numer zadania: "))
 
 
     def suma(a, b):
@@ -53,7 +49,7 @@ while True:
              z=mnozenie(z, y.pop())
          return z
 
-    if zad == 1:
+    if nr == 1:
         print("\nPrzykładowe dane: \n")
         a = "a3"
         b = "f2"
@@ -65,7 +61,7 @@ while True:
         b = input("b = ")
         print(suma(a, b))
 
-    if zad == 2:
+    if nr == 2:
         print("\nPrzykładowe dane: \n")
         a = "32"
         print("Dla a = 32, wartość wyjściowa wynosi:",(xtime(a)))
@@ -76,7 +72,7 @@ while True:
         a = input("\na = ")
         print(xtime(a))
 
-    if zad == 3:
+    if nr == 3:
         print("\nPrzykładowe dane: \n")
         a = "02"
         b = "08"
@@ -88,7 +84,7 @@ while True:
         b = input("b = ")
         print(mnozenie(a, b))
 
-    if zad == 4:
+    if nr == 4:
         print("\nPrzykładowe dane: \n")
         a = "03"
         print("Dla a = 03, wartość wyjściowa wynosi:",(odwrotnosc(a)))
