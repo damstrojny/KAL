@@ -33,15 +33,15 @@ def odwrotnosc(a):
     if a=="00" or a=="0":
         return 'undefined'
     else:
-        wielomian=a
+        z=a
         y=[]
         for i in range (7):
-            wielomian=mnozenie(wielomian,wielomian)
-            y.append(wielomian)
+            z=mnozenie(z,z)
+            y.append(z)
         x=y.pop()
         for i in range (6):
-            wielomian=mnozenie(wielomian, y.pop())
-        return wielomian
+            z=mnozenie(z, y.pop())
+        return z
       
   
 a = "03"
